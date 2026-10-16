@@ -287,6 +287,46 @@ footer{position:relative;z-index:4;padding:32px clamp(16px,5vw,64px) calc(32px +
 }
 </style>
 
+
+<style id="menu-mobile-final-fix">
+@media (max-width: 560px) {
+  nav.nav { position: fixed !important; overflow: visible !important; }
+  nav.nav > #menu-principal {
+    display: none !important;
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    left: 12px !important;
+    right: 12px !important;
+    width: auto !important;
+    max-height: calc(100vh - 130px) !important;
+    overflow-y: auto !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    padding: 8px 14px !important;
+    margin: 0 !important;
+    list-style: none !important;
+    background: #100a20 !important;
+    border: 1px solid rgba(242,185,40,.55) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 18px 40px rgba(0,0,0,.55) !important;
+    z-index: 2147483000 !important;
+    box-sizing: border-box !important;
+  }
+  nav.nav.menu-open-force > #menu-principal { display: flex !important; visibility: visible !important; opacity: 1 !important; }
+  nav.nav > #menu-principal > li { display: block !important; width: 100% !important; margin: 0 !important; }
+  nav.nav > #menu-principal > li > a.lnk {
+    display: block !important; width: 100% !important; padding: 15px 4px !important;
+    color: #f2ead8 !important; font-size: 14px !important; line-height: 1.4 !important;
+    letter-spacing: .12em !important; white-space: normal !important;
+    text-decoration: none !important; border-bottom: 1px solid rgba(242,185,40,.22) !important;
+    box-sizing: border-box !important;
+  }
+  nav.nav > #menu-principal > li:last-child > a.lnk { border-bottom: 0 !important; }
+  nav.nav > button.menu-toggle { display: flex !important; position: relative !important; z-index: 2147483001 !important; touch-action: manipulation; }
+}
+</style>
+
 </head>
 <body>
 
@@ -1094,46 +1134,61 @@ document.documentElement.lang = 'es';
 </script>
 
 
-<script id="menu-hamburguesa-js-fix">
+<script id="menu-mobile-final-js">
 (() => {
-  const initMenu = () => {
+  function setup() {
     const nav = document.querySelector('nav.nav');
-    const button = nav && nav.querySelector('button.menu-toggle');
-    const list = nav && nav.querySelector('#menu-principal');
-    if (!nav || !button || !list || button.dataset.menuFixed === '1') return;
-    button.dataset.menuFixed = '1';
+    const button = nav?.querySelector('button.menu-toggle');
+    const list = nav?.querySelector('#menu-principal');
+    if (!nav || !button || !list || button.dataset.finalMenuReady === '1') return;
+    button.dataset.finalMenuReady = '1';
 
-    const closeMenu = () => {
-      nav.classList.remove('nav-menu-open');
+    const mobile = () => window.matchMedia('(max-width: 560px)').matches;
+    const close = () => {
+      nav.classList.remove('menu-open-force', 'nav-menu-open');
       button.setAttribute('aria-expanded', 'false');
       button.setAttribute('aria-label', 'Abrir menú');
+      list.style.setProperty('display', 'none', 'important');
     };
+    const open = () => {
+      nav.classList.add('menu-open-force', 'nav-menu-open');
+      button.setAttribute('aria-expanded', 'true');
+      button.setAttribute('aria-label', 'Cerrar menú');
+      list.style.setProperty('display', 'flex', 'important');
+      list.style.setProperty('visibility', 'visible', 'important');
+      list.style.setProperty('opacity', '1', 'important');
+    };
+
     button.addEventListener('click', (event) => {
       event.preventDefault();
       event.stopPropagation();
-      const open = !nav.classList.contains('nav-menu-open');
-      nav.classList.toggle('nav-menu-open', open);
-      button.setAttribute('aria-expanded', String(open));
-      button.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
-    });
+      if (!mobile()) return;
+      nav.classList.contains('menu-open-force') ? close() : open();
+    }, { passive: false });
+
     list.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => closeMenu());
+      link.addEventListener('click', close);
     });
     document.addEventListener('click', (event) => {
-      if (window.matchMedia('(max-width: 560px)').matches &&
-          nav.classList.contains('nav-menu-open') &&
-          !nav.contains(event.target)) closeMenu();
+      if (mobile() && nav.classList.contains('menu-open-force') && !nav.contains(event.target)) close();
     });
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') closeMenu();
+      if (event.key === 'Escape') close();
     });
-    closeMenu();
-  };
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMenu, { once: true });
-  } else {
-    initMenu();
+    window.addEventListener('resize', () => {
+      if (!mobile()) {
+        nav.classList.remove('menu-open-force', 'nav-menu-open');
+        list.style.removeProperty('display');
+        button.setAttribute('aria-expanded', 'false');
+      } else if (!nav.classList.contains('menu-open-force')) {
+        list.style.setProperty('display', 'none', 'important');
+      }
+    });
+
+    close();
   }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup, { once: true });
+  else setup();
 })();
 </script>
 
