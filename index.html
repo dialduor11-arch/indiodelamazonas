@@ -27,10 +27,10 @@
 .menu-toggle{display:none;appearance:none;border:1px solid var(--linea);background:rgba(13,9,28,.92);color:var(--hueso);border-radius:8px;width:44px;height:42px;padding:10px;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;flex:none}
 .menu-toggle span{display:block;width:21px;height:2px;background:currentColor;border-radius:2px}
 @media (max-width:560px){
-  .nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:calc(env(safe-area-inset-top,0px) + 10px) 16px 10px;gap:10px;background:rgba(8,6,15,.97)}
+  .nav{position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:calc(env(safe-area-inset-top,0px) + 10px) 16px 10px;gap:10px;background:rgba(8,6,15,.97)}
   .brand img{height:42px;max-width:min(66vw,250px)}
   .menu-toggle{display:flex;margin-left:auto}
-  .nav ul{display:none;position:absolute;top:calc(100% - 1px);left:12px;right:12px;flex-direction:column;gap:0;padding:8px 14px;background:rgba(10,7,22,.98);border:1px solid var(--linea);border-radius:10px;box-shadow:0 14px 35px rgba(0,0,0,.35)}
+  .nav ul{display:none;position:absolute;top:100%;left:12px;right:12px;flex-direction:column;gap:0;padding:8px 14px;background:rgba(10,7,22,.98);border:1px solid var(--linea);border-radius:10px;box-shadow:0 14px 35px rgba(0,0,0,.35);z-index:1000}
   .nav.nav-menu-open ul{display:flex}
   .nav ul li{width:100%}
   .nav a.lnk{display:block;width:100%;box-sizing:border-box;padding:13px 4px;font-size:.78rem;letter-spacing:.1em;border-bottom:1px solid var(--linea);white-space:normal}
@@ -38,6 +38,16 @@
   #pestanas .tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;width:100%;box-sizing:border-box;margin:0 0 28px;align-items:stretch}
   #pestanas .tab{min-width:0;width:100%;box-sizing:border-box;margin:0;padding:10px 2px 13px;font-size:clamp(.88rem,4.2vw,1.2rem);line-height:1.2;letter-spacing:0;white-space:nowrap;text-align:center}
   #pestanas .tab[aria-selected="true"]::after{left:8%;right:8%;height:3px}
+}
+
+
+@media (max-width:560px){
+  .menu-toggle{position:relative;z-index:1001;transition:background .2s,border-color .2s}
+  .menu-toggle span{transform-origin:center;transition:transform .22s ease,opacity .18s ease}
+  .nav.nav-menu-open .menu-toggle{background:rgba(242,185,40,.12);border-color:var(--maiz)}
+  .nav.nav-menu-open .menu-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav.nav-menu-open .menu-toggle span:nth-child(2){opacity:0;transform:scaleX(.2)}
+  .nav.nav-menu-open .menu-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 }
 
 </style>
@@ -240,6 +250,43 @@ footer{position:relative;z-index:4;padding:32px clamp(16px,5vw,64px) calc(32px +
 }
 
 </style>
+
+<style id="menu-hamburguesa-fix">
+@media (max-width: 560px) {
+  nav.nav { position: fixed !important; top: 0; left: 0; right: 0; z-index: 10000 !important; }
+  nav.nav > ul#menu-principal {
+    display: none !important;
+    position: absolute !important;
+    top: calc(100% - 1px) !important;
+    left: 12px !important;
+    right: 12px !important;
+    width: auto !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 8px 14px !important;
+    margin: 0 !important;
+    background: rgba(10,7,22,.98) !important;
+    border: 1px solid var(--linea) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 14px 35px rgba(0,0,0,.4) !important;
+    z-index: 10002 !important;
+    box-sizing: border-box !important;
+  }
+  nav.nav.nav-menu-open > ul#menu-principal { display: flex !important; }
+  nav.nav > ul#menu-principal li { display: block !important; width: 100% !important; }
+  nav.nav > ul#menu-principal a.lnk {
+    display: block !important; width: 100% !important; box-sizing: border-box !important;
+    padding: 13px 4px !important; white-space: normal !important;
+    border-bottom: 1px solid var(--linea) !important;
+  }
+  nav.nav > ul#menu-principal li:last-child a.lnk { border-bottom: 0 !important; }
+  nav.nav > button.menu-toggle { display: flex !important; position: relative; z-index: 10003 !important; }
+  nav.nav.nav-menu-open > button.menu-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  nav.nav.nav-menu-open > button.menu-toggle span:nth-child(2) { opacity: 0; }
+  nav.nav.nav-menu-open > button.menu-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+</style>
+
 </head>
 <body>
 
@@ -935,6 +982,26 @@ document.documentElement.lang = 'es';
     }));
   }
 
+
+  // Cerrar el menú móvil con Escape o al tocar fuera
+  if (navPrincipal && menuToggle) {
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && navPrincipal.classList.contains('nav-menu-open')) {
+        navPrincipal.classList.remove('nav-menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Abrir menú');
+        menuToggle.focus();
+      }
+    });
+    document.addEventListener('click', e => {
+      if (window.matchMedia('(max-width: 560px)').matches && navPrincipal.classList.contains('nav-menu-open') && !navPrincipal.contains(e.target)) {
+        navPrincipal.classList.remove('nav-menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Abrir menú');
+      }
+    });
+  }
+
   // ---------- Pestañas ----------
   const tabs = [...document.querySelectorAll('.tab')];
   function select(id, focus){
@@ -1023,6 +1090,50 @@ document.documentElement.lang = 'es';
     catch(_) { const r = document.createRange(); r.selectNodeContents(resumen); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selecciona y copia'; }
     setTimeout(()=> b.textContent = 'Copiar mensaje', 2000);
   });
+})();
+</script>
+
+
+<script id="menu-hamburguesa-js-fix">
+(() => {
+  const initMenu = () => {
+    const nav = document.querySelector('nav.nav');
+    const button = nav && nav.querySelector('button.menu-toggle');
+    const list = nav && nav.querySelector('#menu-principal');
+    if (!nav || !button || !list || button.dataset.menuFixed === '1') return;
+    button.dataset.menuFixed = '1';
+
+    const closeMenu = () => {
+      nav.classList.remove('nav-menu-open');
+      button.setAttribute('aria-expanded', 'false');
+      button.setAttribute('aria-label', 'Abrir menú');
+    };
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const open = !nav.classList.contains('nav-menu-open');
+      nav.classList.toggle('nav-menu-open', open);
+      button.setAttribute('aria-expanded', String(open));
+      button.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    });
+    list.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => closeMenu());
+    });
+    document.addEventListener('click', (event) => {
+      if (window.matchMedia('(max-width: 560px)').matches &&
+          nav.classList.contains('nav-menu-open') &&
+          !nav.contains(event.target)) closeMenu();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
+    closeMenu();
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMenu, { once: true });
+  } else {
+    initMenu();
+  }
 })();
 </script>
 
