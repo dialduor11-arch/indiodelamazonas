@@ -3,6 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R9TDVDB106"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-R9TDVDB106');
+
+  // Registra como evento cada clic hacia WhatsApp (botones y formulario de consulta)
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="wa.me"], a[href*="whatsapp"]');
+    if (!a) return;
+    gtag('event', 'contacto_whatsapp', {
+      origen: (a.textContent || '').trim().slice(0, 40) || 'boton'
+    });
+  });
+</script>
 <title>Indio del Amazonas | Medicina tradicional y ancestral en Calarcá, Quindío</title>
 <meta name="description" content="Guía de medicina tradicional de la comunidad Ticuna con 55 años de experiencia. Limpias, amor y unión, protección, parapsicología y productos de la selva. Consultas en Calarcá y virtuales.">
 <link rel="canonical" href="https://indiodelamazonas.com/">
@@ -576,6 +593,8 @@ footer{position:relative;z-index:4;padding:32px clamp(16px,5vw,64px) calc(32px +
       <p>Lo que cuentas sobre tu salud, tu vida personal o espiritual se trata como dato sensible. No estás obligado a compartirlo: cuenta solo lo que quieras para que podamos orientarte. Lo usamos únicamente para atender tu consulta y con total confidencialidad.</p>
       <h4>Tus derechos</h4>
       <p>Puedes conocer, actualizar, corregir o pedir que borremos tus datos, y retirar esta autorización cuando quieras, escribiéndonos al WhatsApp +57 312 201 8934. También puedes acudir a la Superintendencia de Industria y Comercio.</p>
+      <h4>Cookies y analítica</h4>
+      <p>Usamos Google Analytics para conocer de forma anónima cómo se usa la página: visitas, secciones vistas y clics en los botones de contacto. Puedes bloquear estas cookies desde la configuración de tu navegador.</p>
       <h4>Norma aplicable</h4>
       <p>Ley 1581 de 2012 y Decreto 1377 de 2013 de Colombia, sobre protección de datos personales.</p>
     </div>
