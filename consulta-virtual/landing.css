@@ -10,7 +10,9 @@ p{margin:0 0 1rem;max-width:62ch}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--maiz);outline-offset:3px}
 .ancho{width:min(1080px,100%);margin:0 auto;padding:0 20px}
-.cabecera{padding:16px 0}.cabecera img{height:52px;width:auto}
+.cabecera{padding:16px 0;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.idioma{font-weight:600;padding:10px 4px}
+.cabecera img{height:52px;width:auto}
 .hero{background:radial-gradient(90% 90% at 80% 60%,#3a2a8c 0%,var(--indigo) 55%,var(--noche) 100%);overflow:hidden}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:end}
 .hero-txt{padding:32px 0 72px;align-self:center}
