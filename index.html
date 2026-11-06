@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <!-- Google tag (gtag.js) -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WGWQJXWX');</script>
+<!-- End Google Tag Manager -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-R9TDVDB106"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -15,6 +18,7 @@
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href*="wa.me"], a[href*="whatsapp"]');
     if (!a) return;
+    window.dataLayer.push({event:'contacto_whatsapp'});
     gtag('event', 'contacto_whatsapp', {
       origen: (a.textContent || '').trim().slice(0, 40) || 'boton'
     });
@@ -414,6 +418,7 @@ footer{position:relative;z-index:4;padding:32px clamp(16px,5vw,64px) calc(32px +
 
 </head>
 <body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WGWQJXWX" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
 
 
 <nav class="nav" aria-label="Principal">
