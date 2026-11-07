@@ -7,20 +7,24 @@
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WGWQJXWX');</script>
 <!-- End Google Tag Manager -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-R9TDVDB106"></script>
 <script>
+  // Los eventos se envían únicamente mediante Google Tag Manager.
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-R9TDVDB106');
 
-  // Registra como evento cada clic hacia WhatsApp (botones y formulario de consulta)
+  // Registra un único evento al hacer clic en enlaces de WhatsApp.
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href*="wa.me"], a[href*="whatsapp"]');
     if (!a) return;
-    window.dataLayer.push({event:'contacto_whatsapp'});
-    gtag('event', 'contacto_whatsapp', {
-      origen: (a.textContent || '').trim().slice(0, 40) || 'boton'
+
+    var parametros = new URLSearchParams(window.location.search);
+    var origen = (a.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 40) || 'boton';
+    var campana = parametros.get('utm_campaign') || '';
+
+    window.dataLayer.push({
+      event: 'contacto_whatsapp',
+      origen: origen,
+      campana: campana,
+      url: a.href
     });
   });
 </script>
