@@ -1,72 +1,339 @@
+
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/consulta-virtual/landing.css">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/consulta-virtual/landing.css">
+
 <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WGWQJXWX');</script>
-<!-- End Google Tag Manager -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-R9TDVDB106"></script>
 <script>
-window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-R9TDVDB106');
-document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me"]');if(!a)return;
-var o=a.dataset.origen||'landing_us_en';dataLayer.push({event:'contacto_whatsapp',origen:o,campana:'US-G1-EN'});gtag('event','contacto_whatsapp',{origen:o,campana:'US-G1-EN'});});
+(function(w,d,s,l,i){
+  w[l]=w[l]||[];
+  w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+  var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),
+      dl=l!='dataLayer'?'&l='+l:'';
+  j.async=true;
+  j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+  f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WGWQJXWX');
 </script>
+<!-- End Google Tag Manager -->
+
+<!-- WhatsApp tracking: Google Tag Manager -->
+<script>
+(function() {
+  window.dataLayer = window.dataLayer || [];
+
+  document.addEventListener('click', function(e) {
+
+    var target = e.target;
+    var a = target && target.closest
+      ? target.closest('a[href]')
+      : null;
+
+    if (!a) return;
+
+    var href = a.href || a.getAttribute('href') || '';
+
+    var isWhatsApp =
+      /wa\.me|api\.whatsapp\.com|web\.whatsapp\.com/i.test(href);
+
+    if (!isWhatsApp) return;
+
+    window.dataLayer.push({
+      event: 'contacto_whatsapp',
+      origen: a.dataset.origen || 'landing_us_en',
+      campana: 'US-G1-EN',
+      enlace_url: href
+    });
+
+  }, true);
+})();
+</script>
+<!-- End WhatsApp tracking -->
+
 <title>Spiritual consultation by video call | Indio del Amazonas</title>
+
 <meta name="description" content="Spiritual consultation by video call for people in the United States. US$50 for 30 minutes. Book on WhatsApp with Indio del Amazonas.">
+
 <link rel="canonical" href="https://indiodelamazonas.com/en/virtual-consultation/">
 <link rel="alternate" hreflang="en" href="https://indiodelamazonas.com/en/virtual-consultation/">
 <link rel="alternate" hreflang="es" href="https://indiodelamazonas.com/consulta-virtual/">
-<meta property="og:title" content="Spiritual consultation by video call"><meta property="og:description" content="US$50 per consultation. Book on WhatsApp."><meta property="og:image" content="https://indiodelamazonas.com/og-image.jpg"><meta property="og:url" content="https://indiodelamazonas.com/en/virtual-consultation/"><meta property="og:type" content="website"><meta property="og:locale" content="en_US">
-</head><body>
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WGWQJXWX" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
-<section class="hero"><div class="ancho">
-<header class="cabecera"><a href="/"><img src="/consulta-virtual/logo.webp" alt="Indio del Amazonas" width="520" height="188"></a><a class="idioma" href="/consulta-virtual/" lang="es" hreflang="es">Español</a></header>
+
+<meta property="og:title" content="Spiritual consultation by video call">
+<meta property="og:description" content="US$50 per consultation. Book on WhatsApp.">
+<meta property="og:image" content="https://indiodelamazonas.com/og-image.jpg">
+<meta property="og:url" content="https://indiodelamazonas.com/en/virtual-consultation/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+
+</head>
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+<iframe
+src="https://www.googletagmanager.com/ns.html?id=GTM-WGWQJXWX"
+height="0"
+width="0"
+style="display:none;visibility:hidden"
+title="Google Tag Manager">
+</iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<section class="hero">
+<div class="ancho">
+
+<header class="cabecera">
+<a href="/">
+<img src="/consulta-virtual/logo.webp" alt="Indio del Amazonas" width="520" height="188">
+</a>
+<a class="idioma" href="/consulta-virtual/" lang="es" hreflang="es">Español</a>
+</header>
+
 <div class="hero-grid">
+
 <div class="hero-txt">
+
 <h1>Spiritual consultation by video call</h1>
-<p class="lead">If you are in the United States, tell us what you are going through and book a session with Indio del Amazonas or his secretary. Sessions are held in Spanish only.</p>
-<a class="btn" data-origen="hero" href="https://wa.me/573122018934?text=Hello%2C%20I%20would%20like%20to%20book%20a%20virtual%20consultation.%20(US-G1-EN)" target="_blank" rel="noopener">Message us on WhatsApp</a>
-<p class="bajo-btn">US$50 for 30 minutes. We reply from Colombia: +57 312 201 8934.</p>
+
+<p class="lead">
+If you are in the United States, tell us what you are going through and book a session with Indio del Amazonas or his secretary. Sessions are held in Spanish only.
+</p>
+
+<a
+class="btn"
+data-origen="hero"
+href="https://wa.me/573122018934?text=Hello%2C%20I%20would%20like%20to%20book%20a%20virtual%20consultation.%20(US-G1-EN)"
+target="_blank"
+rel="noopener">
+Message us on WhatsApp
+</a>
+
+<p class="bajo-btn">
+US$50 for 30 minutes. We reply from Colombia: +57 312 201 8934.
+</p>
+
 </div>
-<div class="hero-img"><img src="/consulta-virtual/indio.webp" alt="Indio del Amazonas wearing a feather headdress and beaded necklace, pointing forward and holding a sphere with an image of a galaxy" width="760" height="955" fetchpriority="high"></div>
-</div></div></section>
+
+<div class="hero-img">
+<img
+src="/consulta-virtual/indio.webp"
+alt="Indio del Amazonas wearing a feather headdress and beaded necklace, pointing forward and holding a sphere with an image of a galaxy"
+width="760"
+height="955"
+fetchpriority="high">
+</div>
+
+</div>
+</div>
+</section>
+
 <div class="chaquira" aria-hidden="true"></div>
+
 <main>
-<section class="precio" aria-label="Price"><div class="ancho precio-grid">
-<p class="cifra">US$50<small>per 30-minute virtual consultation</small></p>
-<ul><li>We see clients Monday to Sunday, 9:00 a.m. to 6:00 p.m. Colombia time.</li><li>You pay before your session.</li><li>Pay by PayPal, Western Union or MoneyGram.</li><li>If you need another service, we quote it separately and you decide.</li></ul>
-</div></section>
-<section class="seccion"><div class="ancho"><h2>How to book</h2>
+
+<section class="precio" aria-label="Price">
+<div class="ancho precio-grid">
+
+<p class="cifra">
+US$50
+<small>per 30-minute virtual consultation</small>
+</p>
+
+<ul>
+<li>We see clients Monday to Sunday, 9:00 a.m. to 6:00 p.m. Colombia time.</li>
+<li>You pay before your session.</li>
+<li>Pay by PayPal, Western Union or MoneyGram.</li>
+<li>If you need another service, we quote it separately and you decide.</li>
+</ul>
+
+</div>
+</section>
+
+<section class="seccion">
+<div class="ancho">
+
+<h2>How to book</h2>
+
 <ol class="pasos">
-<li><h3>Message us on WhatsApp</h3><p>Tell us what you are looking for. Share only what you want to share.</p></li>
-<li><h3>Agree on a day and time</h3><p>We confirm your session, who will see you and the payment details.</p></li>
-<li><h3>Join the video call</h3><p>Pay the US$50 and join from your phone at the agreed time.</p></li>
-</ol></div></section>
-<section class="seccion claro"><div class="ancho"><h2>What you can ask about</h2>
+
+<li>
+<h3>Message us on WhatsApp</h3>
+<p>Tell us what you are looking for. Share only what you want to share.</p>
+</li>
+
+<li>
+<h3>Agree on a day and time</h3>
+<p>We confirm your session, who will see you and the payment details.</p>
+</li>
+
+<li>
+<h3>Join the video call</h3>
+<p>Pay the US$50 and join from your phone at the agreed time.</p>
+</li>
+
+</ol>
+</div>
+</section>
+
+<section class="seccion claro">
+<div class="ancho">
+
+<h2>What you can ask about</h2>
+
 <div class="temas">
-<article><h3>Spiritual cleansing</h3><p>A remote cleansing of body and aura, guided in the tradition of the rainforest.</p></article>
-<article><h3>Spiritual reading</h3><p>A reading of your energy and the moment you are living, to help you think through your decisions more calmly.</p></article>
-<article><h3>Relationships and family</h3><p>A space to talk about your relationship or your home and receive spiritual guidance.</p></article>
-</div></div></section>
-<section class="seccion"><div class="ancho quien">
-<div><h2>Who will see you</h2>
-<p>Indio del Amazonas is a traditional medicine guide from the Ticuna community of Leticia, Colombia, with 55 years of work with plants, vines and roots.</p>
-<p>You will be seen by him or his secretary. We tell you who will be on your video call before the session.</p></div>
-<address class="ficha"><strong>Indio del Amazonas S.A.S.</strong>Cl. 44 #22-15, Calarcá, Quindío, Colombia<br>WhatsApp: +57 312 201 8934<br><br>
-<a href="https://www.tiktok.com/@indiodelamazonasoficial" target="_blank" rel="noopener">TikTok</a>, <a href="https://www.instagram.com/indiodelamazonasoficial" target="_blank" rel="noopener">Instagram</a>, <a href="https://www.facebook.com/indiodelamazonasoficial" target="_blank" rel="noopener">Facebook</a> and <a href="https://www.youtube.com/@indiodelamazonas" target="_blank" rel="noopener">YouTube</a></address>
-</div></section>
-<section class="seccion claro"><div class="ancho"><h2>Frequently asked questions</h2>
-<details><summary>What language are sessions held in?</summary><p>Sessions are held in Spanish only. If you do not speak Spanish, please bring someone who can interpret for you.</p></details>
-<details><summary>When can I book?</summary><p>Monday to Sunday, between 9:00 a.m. and 6:00 p.m. Colombia time. When you book, we confirm the time in your city.</p></details>
-<details><summary>Why does the number start with +57?</summary><p>That is Colombia's country code, where we are based. WhatsApp messages sent over the internet are not charged as international calls.</p></details>
-<details><summary>How do I pay?</summary><p>By PayPal, Western Union or MoneyGram. We send you the details on WhatsApp once your session is agreed. The sender pays any transfer fees.</p></details>
-<details><summary>What if I can't make it?</summary><p>If you let us know at least 24 hours ahead, you can change the date or ask for a refund. See our <a href="/en/virtual-consultation/terms/">terms and refunds</a>.</p></details>
-<details><summary>Do you guarantee results?</summary><p>No. Every experience is personal and we do not promise any specific result.</p></details>
-<details><summary>Does this replace a doctor or psychologist?</summary><p>No. This is spiritual and wellness support. It does not diagnose or treat illness. Do not stop any medical treatment because of this consultation.</p></details>
-</div></section>
-<section class="seccion cierre"><div class="ancho"><h2>Book your consultation</h2><p>Message us and we will agree on a day and time.</p>
-<a class="btn" data-origen="cierre" href="https://wa.me/573122018934?text=Hello%2C%20I%20would%20like%20to%20book%20a%20virtual%20consultation.%20(US-G1-EN)" target="_blank" rel="noopener">Message us on WhatsApp</a>
-<p class="aviso" style="margin-top:2rem">For adults 18 and over. In an emergency, call 911. If you are in emotional crisis, call or text 988.</p></div></section>
+
+<article>
+<h3>Spiritual cleansing</h3>
+<p>A remote cleansing of body and aura, guided in the tradition of the rainforest.</p>
+</article>
+
+<article>
+<h3>Spiritual reading</h3>
+<p>A reading of your energy and the moment you are living, to help you think through your decisions more calmly.</p>
+</article>
+
+<article>
+<h3>Relationships and family</h3>
+<p>A space to talk about your relationship or your home and receive spiritual guidance.</p>
+</article>
+
+</div>
+</div>
+</section>
+
+<section class="seccion">
+<div class="ancho quien">
+
+<div>
+<h2>Who will see you</h2>
+
+<p>
+Indio del Amazonas is a traditional medicine guide from the Ticuna community of Leticia, Colombia, with 55 years of work with plants, vines and roots.
+</p>
+
+<p>
+You will be seen by him or his secretary. We tell you who will be on your video call before the session.
+</p>
+</div>
+
+<address class="ficha">
+
+<strong>Indio del Amazonas S.A.S.</strong>
+Cl. 44 #22-15, Calarcá, Quindío, Colombia<br>
+WhatsApp: +57 312 201 8934<br><br>
+
+<a href="https://www.tiktok.com/@indiodelamazonasoficial" target="_blank" rel="noopener">TikTok</a>,
+<a href="https://www.instagram.com/indiodelamazonasoficial" target="_blank" rel="noopener">Instagram</a>,
+<a href="https://www.facebook.com/indiodelamazonasoficial" target="_blank" rel="noopener">Facebook</a>
+and
+<a href="https://www.youtube.com/@indiodelamazonas" target="_blank" rel="noopener">YouTube</a>
+
+</address>
+
+</div>
+</section>
+
+<section class="seccion claro">
+<div class="ancho">
+
+<h2>Frequently asked questions</h2>
+
+<details>
+<summary>What language are sessions held in?</summary>
+<p>Sessions are held in Spanish only. If you do not speak Spanish, please bring someone who can interpret for you.</p>
+</details>
+
+<details>
+<summary>When can I book?</summary>
+<p>Monday to Sunday, between 9:00 a.m. and 6:00 p.m. Colombia time. When you book, we confirm the time in your city.</p>
+</details>
+
+<details>
+<summary>Why does the number start with +57?</summary>
+<p>That is Colombia's country code, where we are based. WhatsApp messages sent over the internet are not charged as international calls.</p>
+</details>
+
+<details>
+<summary>How do I pay?</summary>
+<p>By PayPal, Western Union or MoneyGram. We send you the details on WhatsApp once your session is agreed. The sender pays any transfer fees.</p>
+</details>
+
+<details>
+<summary>What if I can't make it?</summary>
+<p>If you let us know at least 24 hours ahead, you can change the date or ask for a refund. See our <a href="/en/virtual-consultation/terms/">terms and refunds</a>.</p>
+</details>
+
+<details>
+<summary>Do you guarantee results?</summary>
+<p>No. Every experience is personal and we do not promise any specific result.</p>
+</details>
+
+<details>
+<summary>Does this replace a doctor or psychologist?</summary>
+<p>No. This is spiritual and wellness support. It does not diagnose or treat illness. Do not stop any medical treatment because of this consultation.</p>
+</details>
+
+</div>
+</section>
+
+<section class="seccion cierre">
+<div class="ancho">
+
+<h2>Book your consultation</h2>
+
+<p>Message us and we will agree on a day and time.</p>
+
+<a
+class="btn"
+data-origen="cierre"
+href="https://wa.me/573122018934?text=Hello%2C%20I%20would%20like%20to%20book%20a%20virtual%20consultation.%20(US-G1-EN)"
+target="_blank"
+rel="noopener">
+Message us on WhatsApp
+</a>
+
+<p class="aviso" style="margin-top:2rem">
+For adults 18 and over. In an emergency, call 911. If you are in emotional crisis, call or text 988.
+</p>
+
+</div>
+</section>
+
 </main>
-<footer><div class="ancho"><p>Indio del Amazonas S.A.S. Cl. 44 #22-15, Calarcá, Quindío, Colombia.</p><a href="/en/virtual-consultation/terms/">Terms and refunds</a><a href="/en/privacy/">Privacy</a><a href="/consulta-virtual/" lang="es" hreflang="es">Español</a></div></footer>
-<div class="fijo"><a class="btn" data-origen="fijo_movil" href="https://wa.me/573122018934?text=Hello%2C%20I%20would%20like%20to%20book%20a%20virtual%20consultation.%20(US-G1-EN)" target="_blank" rel="noopener">Message us on WhatsApp</a></div>
-</body></html>
+
+<footer>
+<div class="ancho">
+
+<p>Indio del Amazonas S.A.S. Cl. 44 #22-15, Calarcá, Quindío, Colombia.</p>
+
+<a href="/en/virtual-consultation/terms/">Terms and refunds</a>
+<a href="/en/privacy/">Privacy</a>
+<a href="/consulta-virtual/" lang="es" hreflang="es">Español</a>
+
+</div>
+</footer>
+
+<div class="fijo">
+<a
+class="btn"
+data-origen="fijo_movil"
+href="https://wa.me/573122018934?text=Hello%2C%20I%20would%20like%20to%20book%20a%20virtual%20consultation.%20(US-G1-EN)"
+target="_blank"
+rel="noopener">
+Message us on WhatsApp
+</a>
+</div>
+
+</body>
+</html>
