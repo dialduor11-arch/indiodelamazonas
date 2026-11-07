@@ -15,12 +15,31 @@
 </script>
 <!-- End Google Tag Manager -->
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/consulta-virtual/landing.css">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-R9TDVDB106"></script>
+<!-- Medición de WhatsApp mediante Google Tag Manager -->
 <script>
-window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-R9TDVDB106');
-document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me"]');if(!a)return;
-var o=a.dataset.origen||'landing_us';dataLayer.push({event:'contacto_whatsapp',origen:o,campana:'US-G1'});gtag('event','contacto_whatsapp',{origen:o,campana:'US-G1'});});
+window.dataLayer = window.dataLayer || [];
+
+document.addEventListener('click', function(e) {
+    var enlace = e.target.closest &&
+                 e.target.closest('a[href]');
+
+    if (!enlace) return;
+
+    var url = enlace.href;
+
+    if (
+        !url.includes('wa.me/') &&
+        !url.includes('api.whatsapp.com/')
+    ) return;
+
+    window.dataLayer.push({
+        event: 'contacto_whatsapp',
+        origen: enlace.dataset.origen || 'landing_us',
+        campana: 'US-G1',
+        enlace_url: url
+    });
+
+}, true);
 </script>
 <title>Consulta espiritual por videollamada | Indio del Amazonas</title>
 <meta name="description" content="Consulta espiritual en español por videollamada para personas en Estados Unidos. US$50 por 30 minutos. Agenda por WhatsApp con el Indio del Amazonas.">
