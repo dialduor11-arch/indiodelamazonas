@@ -20,6 +20,9 @@ h1{font-size:clamp(2.6rem,6.4vw,4.6rem);margin-bottom:1.1rem}
 .lead{font-size:1.2rem;color:var(--hueso)}
 .btn{display:inline-block;background:var(--maiz);color:var(--tinta);font-weight:600;font-size:1.1rem;text-decoration:none;padding:15px 26px;border-radius:999px;text-align:center}
 .btn:hover{background:#ffd04f}
+.btn-wa{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#25d366;color:#08291a}
+.btn-wa:hover{background:#1ebe5b}
+.btn-wa svg{width:24px;height:24px;flex:none;fill:currentColor}
 .bajo-btn{font-size:.95rem;color:var(--suave);margin:.8rem 0 0}
 .chaquira{height:28px;background:
  linear-gradient(135deg,var(--maiz) 25%,transparent 25%) 0 0/28px 28px,
@@ -65,5 +68,6 @@ footer a{margin-right:18px}
  .hero-txt .btn{display:none}
  .fijo{display:block;position:fixed;left:0;right:0;bottom:0;z-index:5;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--noche);border-top:1px solid rgba(243,236,220,.2)}
  .fijo .btn{display:block}
+ .fijo .btn-wa{display:flex}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
